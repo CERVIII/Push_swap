@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/19 11:38:27 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:54:03 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,13 @@ typedef struct s_stacks
 }	t_stacks;
 
 int		ft_error(char *error);
-t_stack	*checkarg(int argc, char *argv[], t_stacks *data);
+void	checkarg(int argc, char *argv[]);
 int		checkparams(char *argv);
 int		*strnumber(int argc, char **argv);
 t_stack	*stackadd(t_stack *stack, int number);
+int		stacksize(t_stack *stack);
+void	maxminstack(t_stacks *data, t_stack *stack);
+char	**ft_strsplit(char const *s, char c);
+
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 09:52:26 by pcervill          #+#    #+#              #
-#    Updated: 2022/12/12 12:35:43 by pcervill         ###   ########.fr        #
+#    Updated: 2022/12/19 17:01:01 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address -g3
 
 SRC_DIR = ./src
 
-SRCS = push_swap.c arguments.c #ft_stack.c ft_number.c
+SRCS = push_swap.c arguments.c ft_stack.c #ft_number.c
 
 OBJS = $(addprefix $(SRC_DIR)/, ${SRCS:.c=.o})
 
