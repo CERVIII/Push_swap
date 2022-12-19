@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/14 18:17:43 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:08:39 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,50 +23,82 @@ int	ft_error(char *error)
 	exit(EXIT_FAILURE);
 }
 
-/* char	*savenum(char *argv[], t_stacks *data)
+int	ft_countword(char *str, char c)
 {
 	int	i;
-	int	j;
+	int	wcount;
 
 	i = 0;
-	while (argv[i])
+	wcount = 0;
+	while (str[i])
 	{
-		j = 0;
-		if (argv[i][0] == '"')
-		{
-			while (argv[i][j])
-			{
-				if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
-					ft_error("ERROR\nArgumentos no validos(LETRAS?)");
-				if (argv[i][j + 1] == '-')
-					ft_error("ERROR\nArgumentos no validos(LETRAS?)");
-				j++;
-			}
-		}
+		if (str[i] != c)
+			wcount++;
+		i++;
 	}
+	return (wcount);
 }
- */
+
+t_stack	*stackadd(t_stack *stack, int number)
+{
+	t_stack	*new;
+	t_stack	*aux;
+
+	new = (t_stack *) malloc(sizeof(t_stack));
+	aux = (t_stack *) malloc(sizeof(t_stack));
+	new->content = number;
+	new->next = NULL;
+	if (stack == NULL)
+	{
+		stack = new;
+	}
+	else
+	{
+		aux = stack;
+		while (aux->next)
+			aux = aux->next;
+		aux->next = new;
+	}
+	return (stack);
+}
+
+t_stack	*checkarg(int argc, char *argv[], t_stacks *data)
+{
+	int	i;
+	int	num;
+
+	i = 0;
+	if (argc - 1 == 1)
+	{
+		argc = ft_countword(argv[i], ' ');
+		argv = ft_split(argv[1], ' ');
+	}
+	while (i < argc && argv[i])
+	{
+		printf("argv: %s\n", argv[i]);
+		num = ft_atoi(argv[i]);
+		printf("num: %d\n", num);
+		printf("CKP: %d\n", checkparams(argv[i]));
+		if ((num == 0 && !ft_isdigit(argv[i][0]) && argv[i][1] != '0') || checkparams(argv[i]) != 0)
+			ft_error("Error\nOnly numbers\n");
+		data->a = stackadd(data->a, num);
+		i++;
+	}
+	return (data->a);
+}
+
 int	main(int argc, char *argv[])
 {
-	int			i;
-	int			j;
 	t_stacks	*data;
 
 	atexit(leaks);
 	data = (t_stacks *) malloc(sizeof(t_stacks));
-	i = 1;
-	while (argv[i])
+	data->a = checkarg(argc, argv, data);
+	while (data->a)
 	{
-		j = 0;
-		while (argv[i][j])
-			printf("%c\n", argv[i][j++]);
-		i++;
+		printf("%d\n", data->a->content);
+		data->a = data->a->next;
 	}
-	checkparams(argc, argv);
-	data->number = strnumber(argc, argv);
-	i = 0;
-	while (data->number[i])
-		printf("%d\n", data->number[i++]);
 	free(data);
 	/* crear una lista y añadir esos numeros a la lista en el mismo orden */
 	/* crear los movimientos */

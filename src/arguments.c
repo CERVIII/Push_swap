@@ -6,35 +6,27 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/13 12:47:22 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:02:43 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	checkparams(int argc, char *argv[])
+int	checkparams(char *argv)
 {
 	int	i;
-	int	j;
 
-	if (argc < 2)
-		ft_error("ERROR\nArgumentos no validos(NUMERO ARGUMENTOS)\n");
 	i = 1;
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-'
-				&& argv[i][j] != ' ')
-				ft_error("ERROR\nArgumentos no validos(LETRAS?)");
-			if (argv[i][j + 1] == '-')
-				ft_error("ERROR\nArgumentos no validos(LETRAS?)");
-			j++;
-		}
+		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-'
+			&& argv[i] != ' ')
+			return (1);
+		if (argv[i + 1] == '-')
+			return (1);
 		i++;
 	}
-	return ;
+	return (0);
 }
 
 int	*strnumber(int argc, char **argv)
