@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 15:18:26 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:35:54 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 	//data->count_a = stacksize(data->a);
 	//maxminstack(data, data->a);
 	//printf("count A: %d, max A: %d, min A: %d\n", data->count_a, data->max, data->min);
-	data->a = stackclear
+	data->a = stackclear(data->a);
 	free(data);
 	/* crear una lista y añadir esos numeros a la lista en el mismo orden */
 	/* crear los movimientos */
