@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/19 16:54:48 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:15:39 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,32 @@ t_stack	*stackadd(t_stack *stack, int number)
 	}
 	return (stack);
 }
+
+t_stack	*ft_stackclear(t_stack *stack_a)
+{
+	t_stack	*cpy;
+	t_stack	*aux;
+
+	cpy = stack_a;
+	while (cpy)
+	{
+		aux = cpy->next;
+		free(cpy);
+		cpy = aux;
+	}
+	stack_a = NULL;
+	return (stack_a);
+}
+
+
+
+
+
+
+
+
+
+
 
 int	stacksize(t_stack *stack)
 {
