@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 15:35:54 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:37:31 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	leaks(void)
 
 int	ft_error(char *error)
 {
-	printf("%s%s", RED, error);
+	printf("%sError\n%s", RED, error);
 	exit(EXIT_FAILURE);
 }
 
@@ -29,12 +29,12 @@ int	main(int argc, char *argv[])
 
 	atexit(leaks);
 	data = (t_stacks *) malloc(sizeof(t_stacks));
-	if (argc == 1)
-		ft_error("Error\nFaltan Argumentos");
+	if (!data)
+		exit (1);
+	if (argc < 2)
+		ft_error("Faltan Argumentos.\n");
 	argcheck(argv, data);
-	//data->count_a = stacksize(data->a);
-	//maxminstack(data, data->a);
-	//printf("count A: %d, max A: %d, min A: %d\n", data->count_a, data->max, data->min);
+	printf("count A: %d, max A: %d, min A: %d\n", data->count_a, data->max, data->min);
 	data->a = stackclear(data->a);
 	free(data);
 	/* crear una lista y añadir esos numeros a la lista en el mismo orden */

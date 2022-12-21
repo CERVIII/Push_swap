@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 15:16:31 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:38:33 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,14 @@ void	argcheck(char *argv[], t_stacks *data)
 				&& av[j][1] != '0') || checkparams(av[j]) != 0)
 				ft_error("Error\nOnly numbers\n");
 			data->a = stackadd(data->a, data->num);
+			data->count_a++;
+			
 			j++;
 		}
 		ft_freestring(av);
 		i++;
 	}
+	maxminstack(data);
 }
 
 int	*strnumber(int argc, char **argv)

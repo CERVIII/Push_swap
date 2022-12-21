@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 15:15:39 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:43:13 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_stack	*stackadd(t_stack *stack, int number)
 	return (stack);
 }
 
-t_stack	*ft_stackclear(t_stack *stack_a)
+t_stack	*stackclear(t_stack *stack_a)
 {
 	t_stack	*cpy;
 	t_stack	*aux;
@@ -51,16 +51,6 @@ t_stack	*ft_stackclear(t_stack *stack_a)
 	return (stack_a);
 }
 
-
-
-
-
-
-
-
-
-
-
 int	stacksize(t_stack *stack)
 {
 	int	cont;
@@ -74,14 +64,20 @@ int	stacksize(t_stack *stack)
 	return (cont);
 }
 
-void	maxminstack(t_stacks *data, t_stack *stack)
+
+
+
+
+void	maxminstack(t_stacks *data)
 {
+	data->max = -2147483647;
+	data->min = 2147483647;
 	while (data->a)
 	{
-		if (stack->content > data->max)
-			data->max = stack->content;
-		if (stack->content < data->min)
-			data->min = stack->content;
-		stack = stack->next;
+		if (data->a->content > data->max)
+			data->max = data->a->content;
+		if (data->a->content < data->min)
+			data->min = data->a->content;
+		data->a = data->a->next;
 	}
 }

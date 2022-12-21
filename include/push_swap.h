@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 15:18:41 by pcervill         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:43:24 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ int		*strnumber(int argc, char **argv);
 void	ft_freestring(char **str);
 
 int		stacksize(t_stack *stack);
-void	maxminstack(t_stacks *data, t_stack *stack);
+void	maxminstack(t_stacks *data);
 t_stack	*stackadd(t_stack *stack, int number);
 t_stack	*stacknew(int content);
 t_stack	*stacklast(t_stack *stack);
 void	stackaddback(t_stack *stack, int content);
-t_stack	*ft_stackclear(t_stack *stack_a);
+t_stack	*stackclear(t_stack *stack_a);
 
 #endif
