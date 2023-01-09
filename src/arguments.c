@@ -6,43 +6,11 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 16:38:33 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:33:03 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-int	ft_countspace(char *str, char c)
-{
-	int	i;
-	int	wcount;
-
-	i = 0;
-	wcount = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			wcount++;
-		i++;
-	}
-	return (wcount);
-}
-
-int	ft_countword(char *str, char c)
-{
-	int	i;
-	int	wcount;
-
-	i = 0;
-	wcount = 0;
-	while (str[i])
-	{
-		if (str[i] != c && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-			wcount++;
-		i++;
-	}
-	return (wcount);
-}
 
 int	checkparams(char *argv)
 {
@@ -74,7 +42,7 @@ void	ft_freestring(char **str)
 	free(str);
 }
 
-void	argcheck(char *argv[], t_stacks *data)
+void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 {
 	char	**av;
 	int		i;
@@ -91,9 +59,9 @@ void	argcheck(char *argv[], t_stacks *data)
 			if ((data->num == 0 && !ft_isdigit(av[j][0])
 				&& av[j][1] != '0') || checkparams(av[j]) != 0)
 				ft_error("Error\nOnly numbers\n");
-			data->a = stackadd(data->a, data->num);
+			//data->a = stackadd(data->a, data->num);
+			ft_write_lst(stack_a, data->num);
 			data->count_a++;
-			
 			j++;
 		}
 		ft_freestring(av);
@@ -102,27 +70,12 @@ void	argcheck(char *argv[], t_stacks *data)
 	maxminstack(data);
 }
 
-int	*strnumber(int argc, char **argv)
+void	ft_write_lst(t_list **stack_a, int num)
 {
-	int	*number;
-	int	i;
-	int	j;
-	int	len;
+	t_list	*tmp;
 
-	number = (int *) malloc(argc * sizeof(int));
-	if (!number)
-		return (0);
-	i = 1;
-	j = 0;
-	while (argv[i])
-	{
-		len = ft_strlen(argv[i]);
-		number[j] = ft_atoi(argv[i++]);
-		if (len > 1 && (number[j] == -1 || number[j] == 0))
-			ft_error("ERROR\nArgumentos no validos(TAMAÑO INT)");
-		j++;
-	}
-	number[j] = '\0';
-	free(number);
-	return (number);
+	tmp = NULL;
+	tmp = ft_lstnew(num);
+	ft_lstadd_back(stack_a, tmp);
+	tmp = NULL;
 }

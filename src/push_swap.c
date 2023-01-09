@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 16:37:31 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:58:50 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,23 @@ int	ft_error(char *error)
 int	main(int argc, char *argv[])
 {
 	t_stacks	*data;
+	t_list		*stack_a;
 
 	atexit(leaks);
+	stack_a = (t_list *) malloc(sizeof(t_list));
 	data = (t_stacks *) malloc(sizeof(t_stacks));
 	if (!data)
 		exit (1);
 	if (argc < 2)
 		ft_error("Faltan Argumentos.\n");
-	argcheck(argv, data);
-	printf("count A: %d, max A: %d, min A: %d\n", data->count_a, data->max, data->min);
+	argcheck(argv, data, &stack_a);
+	while (stack_a)
+	{
+		printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
+	}
 	data->a = stackclear(data->a);
 	free(data);
-	/* crear una lista y añadir esos numeros a la lista en el mismo orden */
 	/* crear los movimientos */
 	/* crear el algoritmo para 3 y 5, 100 y 500 numeros */
 	return (0);

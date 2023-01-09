@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   movs1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 13:37:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/09 15:22:37 by pcervill         ###   ########.fr       */
+/*   Created: 2023/01/09 12:22:32 by pcervill          #+#    #+#             */
+/*   Updated: 2023/01/09 12:31:22 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, int *(*f)(int *), void (*del)(int *))
+void	sa(t_stacks *data)
 {
-	t_list	*new;
-	t_list	*lstcp;
+	t_stack	swap;
 
-	if (!lst)
-		return (lst);
-	lstcp = NULL;
-	while (lst)
-	{
-		new = ft_lstnew(*f(&lst->content));
-		if (!(new))
-		{
-			ft_lstclear(&lstcp, (*del));
-			return (NULL);
-		}
-		ft_lstadd_back(&lstcp, new);
-		lst = lst -> next;
-	}
-	return (lstcp);
+	swap = (t_stack *) malloc(sizeof(t_stack));
+	data->a->next = swap;
+	data->a = data->next;
+	data->a = swap;
+	data->a->
 }

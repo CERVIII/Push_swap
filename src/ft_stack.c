@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2022/12/21 16:43:13 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:11:57 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ t_stack	*stackadd(t_stack *stack, int number)
 	new->content = number;
 	new->next = NULL;
 	if (stack == NULL)
-	{
 		stack = new;
-	}
 	else
 	{
 		aux = stack;
@@ -63,10 +61,6 @@ int	stacksize(t_stack *stack)
 	}
 	return (cont);
 }
-
-
-
-
 
 void	maxminstack(t_stacks *data)
 {
