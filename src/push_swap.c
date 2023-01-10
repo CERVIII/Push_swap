@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/09 16:58:50 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:19:34 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@ static void	leaks(void)
 	system("leaks -q push_swap");
 }
 
+void	initdata(t_stacks *data)
+{
+	data->count_a = 0;
+	data->count_b = 0;
+	data->num = 0;
+	data->max = 0;
+	data->min = 0;
+}
+
 int	ft_error(char *error)
 {
-	printf("%sError\n%s", RED, error);
+	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd(error, 1);
 	exit(EXIT_FAILURE);
 }
 
@@ -29,19 +39,15 @@ int	main(int argc, char *argv[])
 	t_list		*stack_a;
 
 	atexit(leaks);
-	stack_a = (t_list *) malloc(sizeof(t_list));
+	stack_a = NULL;
 	data = (t_stacks *) malloc(sizeof(t_stacks));
+	initdata(data);
 	if (!data)
 		exit (1);
 	if (argc < 2)
 		ft_error("Faltan Argumentos.\n");
 	argcheck(argv, data, &stack_a);
-	while (stack_a)
-	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
-	}
-	data->a = stackclear(data->a);
+	stackclear(&stack_a);
 	free(data);
 	/* crear los movimientos */
 	/* crear el algoritmo para 3 y 5, 100 y 500 numeros */

@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/09 11:11:57 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:18:02 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,21 @@ t_stack	*stackadd(t_stack *stack, int number)
 	return (stack);
 }
 
-t_stack	*stackclear(t_stack *stack_a)
+void	stackclear(t_list **stack_a)
 {
-	t_stack	*cpy;
-	t_stack	*aux;
+	t_list	*cpy;
 
-	cpy = stack_a;
+	if (!stack_a)
+		return ;
+	cpy = *stack_a;
 	while (cpy)
 	{
-		aux = cpy->next;
-		free(cpy);
-		cpy = aux;
+		cpy = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = cpy;
 	}
 	stack_a = NULL;
-	return (stack_a);
+	return ;
 }
 
 int	stacksize(t_stack *stack)
@@ -62,16 +63,16 @@ int	stacksize(t_stack *stack)
 	return (cont);
 }
 
-void	maxminstack(t_stacks *data)
+void	maxminstack(t_list *stack_a, t_stacks *data)
 {
-	data->max = -2147483647;
+	data->max = -2147483648;
 	data->min = 2147483647;
-	while (data->a)
+	while (stack_a)
 	{
-		if (data->a->content > data->max)
-			data->max = data->a->content;
-		if (data->a->content < data->min)
-			data->min = data->a->content;
-		data->a = data->a->next;
+		if (stack_a->content > data->max)
+			data->max = stack_a->content;
+		if (stack_a->content < data->min)
+			data->min = stack_a->content;
+		stack_a = stack_a->next;
 	}
 }

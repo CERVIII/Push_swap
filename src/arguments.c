@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/09 16:33:03 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:32:55 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,35 @@ void	ft_freestring(char **str)
 	free(str);
 }
 
+/* void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
+{
+	char	**av;
+	int		size;
+	int		i;
+	int		j;
+
+	i = 1;
+	size = 0;
+	while (argv[i])
+	{
+		av = ft_split(argv[i], ' ');
+		j = 0;
+		while (av[j])
+		{
+			data->num = ft_atoi(av[j]);
+			if ((data->num == 0 && !ft_isdigit(av[j][0])
+				&& av[j][1] != '0') || checkparams(av[j]) != 0)
+				ft_error("Only numbers\n");
+			ft_write_lst(stack_a, data->num);
+			data->count_a++;
+			j++;
+		}
+		ft_freestring(av);
+		i++;
+	}
+	maxminstack(data);
+} */
+
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 {
 	char	**av;
@@ -58,24 +87,28 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 			data->num = ft_atoi(av[j]);
 			if ((data->num == 0 && !ft_isdigit(av[j][0])
 				&& av[j][1] != '0') || checkparams(av[j]) != 0)
-				ft_error("Error\nOnly numbers\n");
-			//data->a = stackadd(data->a, data->num);
-			ft_write_lst(stack_a, data->num);
+				ft_error("Only numbers\n");
 			data->count_a++;
 			j++;
 		}
+		ft_write_lst(stack_a, j, av, 0);
 		ft_freestring(av);
 		i++;
 	}
-	maxminstack(data);
+	maxminstack(*stack_a, data);
+	return ;
 }
 
-void	ft_write_lst(t_list **stack_a, int num)
+void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i)
 {
 	t_list	*tmp;
 
 	tmp = NULL;
-	tmp = ft_lstnew(num);
-	ft_lstadd_back(stack_a, tmp);
+	while (i < argc)
+	{
+		tmp = ft_lstnew(ft_atoi(argv[i]));
+		ft_lstadd_back(stack_a, tmp);
+		i++;
+	}
 	tmp = NULL;
 }
