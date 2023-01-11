@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/10 12:32:55 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:23:46 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	checkparams(char *argv)
 	i = 1;
 	while (argv[i])
 	{
-		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-'
-			&& argv[i] != ' ')
+		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-')
 			return (1);
 		if (argv[i + 1] == '-')
 			return (1);
@@ -42,15 +41,13 @@ void	ft_freestring(char **str)
 	free(str);
 }
 
-/* void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
+void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 {
 	char	**av;
-	int		size;
 	int		i;
 	int		j;
 
 	i = 1;
-	size = 0;
 	while (argv[i])
 	{
 		av = ft_split(argv[i], ' ');
@@ -58,8 +55,7 @@ void	ft_freestring(char **str)
 		while (av[j])
 		{
 			data->num = ft_atoi(av[j]);
-			if ((data->num == 0 && !ft_isdigit(av[j][0])
-				&& av[j][1] != '0') || checkparams(av[j]) != 0)
+			if (checkparams(av[j]) != 0)
 				ft_error("Only numbers\n");
 			ft_write_lst(stack_a, data->num);
 			data->count_a++;
@@ -68,10 +64,21 @@ void	ft_freestring(char **str)
 		ft_freestring(av);
 		i++;
 	}
-	maxminstack(data);
-} */
+	maxminstack(*stack_a, data);
+	return ;
+}
 
-void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
+void	ft_write_lst(t_list **stack_a, int num)
+{
+	t_list	*tmp;
+
+	tmp = NULL;
+	tmp = ft_lstnew(num);
+	ft_lstadd_back(stack_a, tmp);
+	tmp = NULL;
+}
+
+/* void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 {
 	char	**av;
 	int		i;
@@ -97,9 +104,9 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 	}
 	maxminstack(*stack_a, data);
 	return ;
-}
+} */
 
-void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i)
+/* void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i)
 {
 	t_list	*tmp;
 
@@ -111,4 +118,4 @@ void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i)
 		i++;
 	}
 	tmp = NULL;
-}
+} */

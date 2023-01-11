@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/10 13:19:34 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:14:51 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@ void	initdata(t_stacks *data)
 	data->num = 0;
 	data->max = 0;
 	data->min = 0;
-}
-
-int	ft_error(char *error)
-{
-	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(error, 1);
-	exit(EXIT_FAILURE);
 }
 
 int	main(int argc, char *argv[])
