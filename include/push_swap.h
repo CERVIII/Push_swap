@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 15:09:00 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:52:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,22 @@ typedef struct s_stacks
 	int		num;
 }	t_stacks;
 
+/*	 	PUSH_SWAP.C		*/
 void	initdata(t_stacks *data);
+void	ft_printst(t_list *stack);
+
+/* 		ARGUMENTS.C 	*/
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
+int		checkparams(char *argv);
 void	ft_write_lst(t_list **stack_a, int num);
 void	ft_isrepeat(t_list *stack_a, int num);
-//void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i);
-int		checkparams(char *argv);
-int		ft_countword(char *str, char c);
-int		ft_countspace(char *str, char c);
-
-int		*strnumber(int argc, char **argv);
 void	ft_freestring(char **str);
 
-int		stacksize(t_stack *stack);
+/* 		FT_STACK.C		*/
+void	ft_lstorder(t_list **stack_a);
 void	maxminstack(t_list *stack_a, t_stacks *data);
-t_stack	*stackadd(t_stack *stack, int number);
-t_stack	*stacknew(int content);
-t_stack	*stacklast(t_stack *stack);
-void	stackaddback(t_stack *stack, int content);
 void	stackclear(t_list **stack_a);
 
+/* 		MOVS1.C			*/
+void	ft_sa(t_list **stack_a);
 #endif

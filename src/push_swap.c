@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 13:14:51 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:54:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 static void	leaks(void)
 {
 	system("leaks -q push_swap");
+}
+
+void	ft_printst(t_list *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->content);
+		stack = stack->next;
+	}
+	return ;
 }
 
 void	initdata(t_stacks *data)
@@ -40,6 +50,9 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		ft_error("Faltan Argumentos.\n");
 	argcheck(argv, data, &stack_a);
+	ft_printst(stack_a);
+	ft_sa(&stack_a);
+	ft_printst(stack_a);
 	stackclear(&stack_a);
 	free(data);
 	/* crear los movimientos */

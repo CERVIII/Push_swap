@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 15:09:37 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:34:09 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 		ft_freestring(av);
 		i++;
 	}
+	ft_lstorder(stack_a);
 	maxminstack(*stack_a, data);
 	return ;
 }
@@ -81,7 +82,7 @@ void	ft_write_lst(t_list **stack_a, int num)
 
 void	ft_isrepeat(t_list *stack_a, int num)
 {
-	while (stack_a)
+	while (stack_a->next != NULL)
 	{
 		if (stack_a->content == num)
 			ft_error("Repeat numbers\n");
@@ -89,45 +90,3 @@ void	ft_isrepeat(t_list *stack_a, int num)
 	}
 	return ;
 }
-
-/* void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
-{
-	char	**av;
-	int		i;
-	int		j;
-
-	i = 1;
-	while (argv[i])
-	{
-		av = ft_split(argv[i], ' ');
-		j = 0;
-		while (av[j])
-		{
-			data->num = ft_atoi(av[j]);
-			if ((data->num == 0 && !ft_isdigit(av[j][0])
-				&& av[j][1] != '0') || checkparams(av[j]) != 0)
-				ft_error("Only numbers\n");
-			data->count_a++;
-			j++;
-		}
-		ft_write_lst(stack_a, j, av, 0);
-		ft_freestring(av);
-		i++;
-	}
-	maxminstack(*stack_a, data);
-	return ;
-} */
-
-/* void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i)
-{
-	t_list	*tmp;
-
-	tmp = NULL;
-	while (i < argc)
-	{
-		tmp = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(stack_a, tmp);
-		i++;
-	}
-	tmp = NULL;
-} */

@@ -6,19 +6,22 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:22:32 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/09 12:31:22 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:52:01 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sa(t_stacks *data)
+void	ft_sa(t_list **stack_a)
 {
-	t_stack	swap;
+	t_list	*swap;
+	t_list	*swap2;
 
-	swap = (t_stack *) malloc(sizeof(t_stack));
-	data->a->next = swap;
-	data->a = data->next;
-	data->a = swap;
-	data->a->
+	swap = *stack_a;
+	swap2 = swap->next;
+	*stack_a = swap2;
+	swap->next = swap2->next;
+	swap2->next = swap;
+	ft_putstr_fd("sa\n", 1);
+	return ;
 }
