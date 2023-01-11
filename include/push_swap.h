@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 13:24:17 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:09:00 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_stacks
 void	initdata(t_stacks *data);
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
 void	ft_write_lst(t_list **stack_a, int num);
+void	ft_isrepeat(t_list *stack_a, int num);
 //void	ft_write_lst(t_list **stack_a, int argc, char **argv, int i);
 int		checkparams(char *argv);
 int		ft_countword(char *str, char c);

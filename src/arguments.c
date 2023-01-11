@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 13:23:46 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:09:37 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,19 @@ void	ft_write_lst(t_list **stack_a, int num)
 	tmp = NULL;
 	tmp = ft_lstnew(num);
 	ft_lstadd_back(stack_a, tmp);
+	ft_isrepeat(*stack_a, num);
 	tmp = NULL;
+}
+
+void	ft_isrepeat(t_list *stack_a, int num)
+{
+	while (stack_a)
+	{
+		if (stack_a->content == num)
+			ft_error("Repeat numbers\n");
+		stack_a = stack_a->next;
+	}
+	return ;
 }
 
 /* void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
