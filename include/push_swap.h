@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 17:52:05 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:25:35 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@
 # define CYAN "\x1B[36m"
 # define WHITE "\x1B[37m"
 
-typedef struct s_stack
-{
-	int				content;
-	struct s_stack	*next;
-}	t_stack;
-
 typedef struct s_stacks
 {
 	int		count_a;
@@ -49,7 +43,8 @@ typedef struct s_stacks
 
 /*	 	PUSH_SWAP.C		*/
 void	initdata(t_stacks *data);
-void	ft_printst(t_list *stack);
+void	ft_printst(t_list *stack_a, t_list *stack_b);
+void	example_movs(t_list **stack_a, t_list **stack_b);
 
 /* 		ARGUMENTS.C 	*/
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
@@ -65,4 +60,19 @@ void	stackclear(t_list **stack_a);
 
 /* 		MOVS1.C			*/
 void	ft_sa(t_list **stack_a);
+void	ft_sb(t_list **stack_b);
+void	ft_ss(t_list **stack_a, t_list **stack_b);
+void	ft_pa(t_list **stack_a, t_list **stack_b);
+void	ft_pb(t_list **stack_a, t_list **stack_b);
+
+/* 		MOVS2.C			 */
+void	ft_ra(t_list **stack_a);
+void	ft_rb(t_list **stack_b);
+void	ft_rr(t_list **stack_a, t_list **stack_b);
+
+/* 		MOVS3.C			 */
+void	ft_rra(t_list **stack_a);
+void	ft_rrb(t_list **stack_b);
+void	ft_rrr(t_list **stack_a, t_list **stack_b);
+
 #endif
