@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/16 17:29:27 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:44:54 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 static void	leaks(void)
 {
 	system("leaks -q push_swap");
+}
+
+void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
+{
+	t_list	*tmp;
+
+	tmp = *stack_b;
+	if (data->count_a == 3)
+	{
+		al_three(stack_a);
+
+		return ;
+	}
+	if (data->count_a == 5)
+		return ;
+	free(stack_b);
 }
 
 void	ft_printst(t_list *stack_a, t_list *stack_b)
@@ -29,7 +45,7 @@ void	ft_printst(t_list *stack_a, t_list *stack_b)
 		}
 		if (stack_b)
 		{
-			printf("		%d\n", stack_b->content);
+			printf("		%d", stack_b->content);
 			stack_b = stack_b->next;
 		}
 		if (!stack_b)
@@ -90,7 +106,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		ft_error("Faltan Argumentos.\n");
 	argcheck(argv, data, &stack_a);
-	example_movs(&stack_a, &stack_b);
+	select_al(&stack_a, &stack_b, data);
 	stackclear(&stack_a);
 	free(data);
 	/* crear el algoritmo para 3 y 5, 100 y 500 numeros */

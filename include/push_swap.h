@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/16 17:25:35 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:57:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_stacks
 void	initdata(t_stacks *data);
 void	ft_printst(t_list *stack_a, t_list *stack_b);
 void	example_movs(t_list **stack_a, t_list **stack_b);
+void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ARGUMENTS.C 	*/
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
@@ -74,5 +75,8 @@ void	ft_rr(t_list **stack_a, t_list **stack_b);
 void	ft_rra(t_list **stack_a);
 void	ft_rrb(t_list **stack_b);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
+
+/* 		ALGORITM3_5		 */
+void	al_three(t_list **stack_a);
 
 #endif
