@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 11:57:53 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:58:11 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ typedef struct s_stacks
 	int		min;
 	int		max;
 	int		num;
+	int		movs;
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
 void	initdata(t_stacks *data);
 void	ft_printst(t_list *stack_a, t_list *stack_b);
-void	example_movs(t_list **stack_a, t_list **stack_b);
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	example_movs(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ARGUMENTS.C 	*/
 void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
@@ -60,23 +61,26 @@ void	maxminstack(t_list *stack_a, t_stacks *data);
 void	stackclear(t_list **stack_a);
 
 /* 		MOVS1.C			*/
-void	ft_sa(t_list **stack_a);
-void	ft_sb(t_list **stack_b);
-void	ft_ss(t_list **stack_a, t_list **stack_b);
-void	ft_pa(t_list **stack_a, t_list **stack_b);
-void	ft_pb(t_list **stack_a, t_list **stack_b);
+void	ft_sa(t_list **stack_a, t_stacks *data);
+void	ft_sb(t_list **stack_b, t_stacks *data);
+void	ft_ss(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	ft_pa(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	ft_pb(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		MOVS2.C			 */
-void	ft_ra(t_list **stack_a);
-void	ft_rb(t_list **stack_b);
-void	ft_rr(t_list **stack_a, t_list **stack_b);
+void	ft_ra(t_list **stack_a, t_stacks *data);
+void	ft_rb(t_list **stack_b, t_stacks *data);
+void	ft_rr(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		MOVS3.C			 */
-void	ft_rra(t_list **stack_a);
-void	ft_rrb(t_list **stack_b);
-void	ft_rrr(t_list **stack_a, t_list **stack_b);
+void	ft_rra(t_list **stack_a, t_stacks *data);
+void	ft_rrb(t_list **stack_b, t_stacks *data);
+void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	auxrrb(t_list **stack_b);
 
 /* 		ALGORITM3_5		 */
-void	al_three(t_list **stack_a);
+void	al_three(t_list **stack_a, t_stacks *data);
+void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 #endif

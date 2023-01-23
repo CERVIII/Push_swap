@@ -6,13 +6,13 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:51:16 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/16 17:22:11 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:57:46 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_rra(t_list **stack_a)
+void	ft_rra(t_list **stack_a, t_stacks *data)
 {
 	t_list	*last;
 	t_list	*tmp;
@@ -28,10 +28,11 @@ void	ft_rra(t_list **stack_a)
 	*stack_a = last;
 	tmp->next = NULL;
 	ft_putstr_fd("rra\n", 1);
+	data->movs++;
 	return ;
 }
 
-void	ft_rrb(t_list **stack_b)
+void	ft_rrb(t_list **stack_b, t_stacks *data)
 {
 	t_list	*last;
 	t_list	*tmp;
@@ -47,10 +48,11 @@ void	ft_rrb(t_list **stack_b)
 	*stack_b = last;
 	tmp->next = NULL;
 	ft_putstr_fd("rrb\n", 1);
+	data->movs++;
 	return ;
 }
 
-void	ft_rrr(t_list **stack_a, t_list **stack_b)
+void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*last;
 	t_list	*tmp;
@@ -65,8 +67,19 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b)
 	last->next = *stack_a;
 	*stack_a = last;
 	tmp->next = NULL;
-	tmp = *stack_b;
+	auxrrb(stack_b);
+	ft_putstr_fd("rrr\n", 1);
+	data->movs++;
+	return ;
+}
+
+void	auxrrb(t_list **stack_b)
+{
+	t_list	*last;
+	t_list	*tmp;
+
 	last = *stack_b;
+	tmp = *stack_b;
 	while (last->next)
 	{
 		tmp = last;
@@ -75,6 +88,4 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b)
 	last->next = *stack_b;
 	*stack_b = last;
 	tmp->next = NULL;
-	ft_putstr_fd("rrr\n", 1);
-	return ;
 }

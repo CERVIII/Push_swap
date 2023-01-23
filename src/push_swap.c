@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 12:44:54 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:35:18 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	tmp = *stack_b;
 	if (data->count_a == 3)
 	{
-		al_three(stack_a);
-
+		al_three(stack_a, data);
 		return ;
 	}
 	if (data->count_a == 5)
+	{
+		al_five(stack_a, stack_b, data);
 		return ;
+	}
 	free(stack_b);
 }
 
@@ -45,7 +47,7 @@ void	ft_printst(t_list *stack_a, t_list *stack_b)
 		}
 		if (stack_b)
 		{
-			printf("		%d", stack_b->content);
+			printf("		%d\n", stack_b->content);
 			stack_b = stack_b->next;
 		}
 		if (!stack_b)
@@ -54,40 +56,14 @@ void	ft_printst(t_list *stack_a, t_list *stack_b)
 	return ;
 }
 
-void	example_movs(t_list **stack_a, t_list **stack_b)
-{
-	ft_sa(stack_a);
-	ft_printst(*stack_a, *stack_b);
-	ft_pb(stack_a, stack_b);
-	ft_pb(stack_a, stack_b);
-	ft_pb(stack_a, stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_sb(stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_ss(stack_a, stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_ra(stack_a);
-	ft_printst(*stack_a, *stack_b);
-	ft_rb(stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_rr(stack_a, stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_rra(stack_a);
-	ft_printst(*stack_a, *stack_b);
-	ft_rrb(stack_b);
-	ft_printst(*stack_a, *stack_b);
-	ft_rrr(stack_a, stack_b);
-	ft_printst(*stack_a, *stack_b);
-	return ;
-}
-
 void	initdata(t_stacks *data)
 {
 	data->count_a = 0;
 	data->count_b = 0;
-	data->num = 0;
+	data->movs = 0;
 	data->max = 0;
 	data->min = 0;
+	data->num = 0;
 }
 
 int	main(int argc, char *argv[])
@@ -107,8 +83,10 @@ int	main(int argc, char *argv[])
 		ft_error("Faltan Argumentos.\n");
 	argcheck(argv, data, &stack_a);
 	select_al(&stack_a, &stack_b, data);
+	printf("Nº MOVIMIENTOS: %d\n", data->movs);
+	ft_printst(stack_a, stack_b);
 	stackclear(&stack_a);
 	free(data);
-	/* crear el algoritmo para 3 y 5, 100 y 500 numeros */
+	/* crear el algoritmo para 5, 100 y 500 numeros */
 	return (0);
 }

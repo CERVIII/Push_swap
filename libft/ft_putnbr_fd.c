@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcervill <pcervill@student.42madrid>       +#+  +:+       +#+        */
+/*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 20:11:41 by pcervill          #+#    #+#             */
-/*   Updated: 2022/04/07 12:44:00 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:47:14 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd((num / 10), fd);
 		ft_putnbr_fd((num % 10), fd);
 	}
+	ft_putchar_fd('\n', 1);
 }

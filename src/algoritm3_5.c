@@ -6,13 +6,13 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 12:45:49 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:34:19 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	al_three(t_list **stack_a)
+void	al_three(t_list **stack_a, t_stacks *data)
 {
 	int		a;
 	int		b;
@@ -33,30 +33,45 @@ void	al_three(t_list **stack_a)
 		c = tmp->content;
 		if ((a > b && a < c && b < c) || (a > c && b > c && a > b)
 			|| (a < b && a < c && b > c))
-			ft_sa(stack_a);
+			ft_sa(stack_a, data);
 		if (a > b && a > c && b < c)
-			ft_ra(stack_a);
+			ft_ra(stack_a, data);
 		if (a < b && a > c && b > c)
-			ft_rra(stack_a);
+			ft_rra(stack_a, data);
 	}
 }
 
-void	al_five(t_list **stack_a, t_list **stack_b)
+void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
-	int		i;
-	int		a;
-	int		b;
 	t_list	*tmp;
 
-	i = 2;
-	while (i != 0)
+	tmp = *stack_a;
+	while (data->count_b != 2)
 	{
-		ft_pb(stack_a, stack_b);
-		i--;
+		tmp = *stack_a;
+		if (tmp->content == data->max || tmp->content == data->min)
+			ft_pb(stack_a, stack_b, data);
+		else
+			ft_ra(stack_a, data);
 	}
-	al_three(stack_a);
+	al_three(stack_a, data);
+	while (data->count_b != 0)
+	{
+		ft_move_a(stack_a, stack_b, data);
+	}
+	return ;
+}
+
+void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
+{
+	int		a;
+	t_list	*tmp;
+
 	tmp = *stack_a;
 	a = tmp->content;
-	tmp = tmp->next;
-	b = tmp->content;
+	tmp = *stack_b;
+	ft_pa(stack_a, stack_b, data);
+	if (tmp->content > a)
+		ft_ra(stack_a, data);
+	return ;
 }
