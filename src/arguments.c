@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 16:34:09 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:06:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ int	checkparams(char *argv)
 		if (argv[i + 1] == '-')
 			return (1);
 		i++;
+	}
+	return (0);
+}
+
+int	ft_only_spaces(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+			|| str[i] == ' ' || str[i] == '\r' || str[i] == '\f')
+			i++;
+		else
+			return (1);
 	}
 	return (0);
 }
@@ -56,7 +72,7 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 		{
 			data->num = ft_atoi(av[j]);
 			if (checkparams(av[j]) != 0)
-				ft_error("Only numbers\n");
+				ft_error();
 			ft_write_lst(stack_a, data->num);
 			data->count_a++;
 			j++;
@@ -65,6 +81,7 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 		i++;
 	}
 	ft_lstorder(stack_a);
+	ft_lst_inverted(stack_a, data);
 	maxminstack(*stack_a, data);
 	return ;
 }
@@ -85,7 +102,7 @@ void	ft_isrepeat(t_list *stack_a, int num)
 	while (stack_a->next != NULL)
 	{
 		if (stack_a->content == num)
-			ft_error("Repeat numbers\n");
+			ft_error();
 		stack_a = stack_a->next;
 	}
 	return ;

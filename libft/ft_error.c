@@ -6,15 +6,14 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:12:01 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 17:31:02 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/24 13:10:09 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft.h"
 
-int	ft_error(char *error)
+int	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(error, 1);
-	exit(EXIT_FAILURE);
+	exit(0);
 }

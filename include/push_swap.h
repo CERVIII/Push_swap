@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 16:58:11 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:26:36 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_freestring(char **str);
 
 /* 		FT_STACK.C		*/
 void	ft_lstorder(t_list **stack_a);
+void	ft_lst_inverted(t_list **stack_a, t_stacks *data);
 void	maxminstack(t_list *stack_a, t_stacks *data);
 void	stackclear(t_list **stack_a);
 

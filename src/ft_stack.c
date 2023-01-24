@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 17:50:52 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:23:57 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ void	ft_lstorder(t_list **stack_a)
 		cpy2 = cpy2->next;
 	}
 	exit (0);
+}
+
+void	ft_lst_inverted(t_list **stack_a, t_stacks *data)
+{
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	tmp = *stack_a;
+	tmp2 = tmp->next;
+	while (tmp2 != NULL)
+	{
+		if (tmp->content < tmp2->content)
+			return ;
+		tmp = tmp->next;
+		tmp2 = tmp2->next;
+	}
+	ft_sa(stack_a, data);
+	return ;
 }
 
 void	maxminstack(t_list *stack_a, t_stacks *data)
