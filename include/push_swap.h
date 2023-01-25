@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/24 10:26:36 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:15:16 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_stacks
 	int		max;
 	int		num;
 	int		movs;
+	int		posmax;
+	int		posmin;
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
@@ -60,6 +62,9 @@ void	ft_lstorder(t_list **stack_a);
 void	ft_lst_inverted(t_list **stack_a, t_stacks *data);
 void	maxminstack(t_list *stack_a, t_stacks *data);
 void	stackclear(t_list **stack_a);
+int		ft_only_spaces(const char *str);
+void	posmaxmin(t_list *stack_a, t_stacks *data);
+void	ra_rra(t_list **stack_a, t_stacks *data);
 
 /* 		MOVS1.C			*/
 void	ft_sa(t_list **stack_a, t_stacks *data);
@@ -80,6 +85,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data);
 void	auxrrb(t_list **stack_b);
 
 /* 		ALGORITM3_5		 */
+void	al_two(t_list **stack_a, t_stacks *data);
 void	al_three(t_list **stack_a, t_stacks *data);
 void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data);
 void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data);

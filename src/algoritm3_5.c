@@ -6,11 +6,20 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/24 10:26:28 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:15:33 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	al_two(t_list **stack_a, t_stacks *data)
+{
+	t_list	*tmp;
+
+	tmp = *stack_a;
+	if (tmp->content > tmp->next->content)
+		ft_sa(stack_a, data);
+}
 
 void	al_three(t_list **stack_a, t_stacks *data)
 {
@@ -46,15 +55,15 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	t_list	*tmp;
 
 	tmp = *stack_a;
-	while (data->count_b != 2)
+	while (data->count_b < 2)
 	{
 		tmp = *stack_a;
 		if (tmp->content == data->max || tmp->content == data->min)
 			ft_pb(stack_a, stack_b, data);
 		else
-			ft_ra(stack_a, data);
+			ra_rra(stack_a, data);
 	}
-	al_three(stack_a, data);
+	select_al(stack_a, stack_b, data);
 	while (data->count_b != 0)
 	{
 		ft_move_a(stack_a, stack_b, data);

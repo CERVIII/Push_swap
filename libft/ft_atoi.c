@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:59:20 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/11 13:20:45 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:58:30 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static int	snumber(unsigned long int number, int sign)
 	if (number > 2147483648 && sign == 1)
 	{
 		number = 0;
-		ft_error("Overpass Int_Min\n");
+		ft_error();
 	}
 	else if (number > 2147483647 && sign != 1)
 	{
 		number = 0;
-		ft_error("Overpass Int_Max\n");
+		ft_error();
 	}
 	return (number);
 }

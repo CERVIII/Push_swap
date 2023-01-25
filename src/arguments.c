@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/24 12:06:53 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:59:54 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	checkparams(char *argv)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-')
@@ -24,22 +24,6 @@ int	checkparams(char *argv)
 		if (argv[i + 1] == '-')
 			return (1);
 		i++;
-	}
-	return (0);
-}
-
-int	ft_only_spaces(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-			|| str[i] == ' ' || str[i] == '\r' || str[i] == '\f')
-			i++;
-		else
-			return (1);
 	}
 	return (0);
 }
@@ -66,15 +50,16 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 	i = 1;
 	while (argv[i])
 	{
+		if (ft_strlen(argv[i]) == 0 || (ft_strlen(argv[i]) == 1
+				&& (argv[i][0] == ' ' || argv[i][0] == '-')))
+			ft_error();
 		av = ft_split(argv[i], ' ');
 		j = 0;
 		while (av[j])
 		{
-			data->num = ft_atoi(av[j]);
 			if (checkparams(av[j]) != 0)
 				ft_error();
-			ft_write_lst(stack_a, data->num);
-			data->count_a++;
+			ft_write_lst(stack_a, ft_atoi(av[j]));
 			j++;
 		}
 		ft_freestring(av);
@@ -82,7 +67,6 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 	}
 	ft_lstorder(stack_a);
 	ft_lst_inverted(stack_a, data);
-	maxminstack(*stack_a, data);
 	return ;
 }
 
