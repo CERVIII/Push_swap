@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/25 17:15:33 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:46:43 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,13 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	while (data->count_b < 2)
 	{
 		tmp = *stack_a;
+		posmaxmin(*stack_a, data);
 		if (tmp->content == data->max || tmp->content == data->min)
 			ft_pb(stack_a, stack_b, data);
+		else if (data->count_b == 1)
+			ra_rra(stack_a, data, data->posmax);
 		else
-			ra_rra(stack_a, data);
+			ra_rra(stack_a, data, data->posmin);
 	}
 	select_al(stack_a, stack_b, data);
 	while (data->count_b != 0)

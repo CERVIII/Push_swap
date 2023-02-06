@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/25 17:15:16 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/06 13:51:01 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	maxminstack(t_list *stack_a, t_stacks *data);
 void	stackclear(t_list **stack_a);
 int		ft_only_spaces(const char *str);
 void	posmaxmin(t_list *stack_a, t_stacks *data);
-void	ra_rra(t_list **stack_a, t_stacks *data);
+void	ra_rra(t_list **stack_a, t_stacks *data, int pos);
 
 /* 		MOVS1.C			*/
 void	ft_sa(t_list **stack_a, t_stacks *data);

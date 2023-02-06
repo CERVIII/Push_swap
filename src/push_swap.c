@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/25 17:02:53 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:48:04 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	data->count_a = ft_lstsize(*stack_a);
 	data->count_b = ft_lstsize(*stack_b);
 	maxminstack(*stack_a, data);
+	posmaxmin(*stack_a, data);
 	if (data->count_a <= 2)
 	{
 		al_two(stack_a, data);
@@ -66,8 +67,10 @@ void	initdata(t_stacks *data)
 	data->count_a = 0;
 	data->count_b = 0;
 	data->movs = 0;
-	data->max = 0;
-	data->min = 0;
+	/* data->max = 0;
+	data->min = 0; */
+	data->max = -2147483648;
+	data->min = 2147483647;
 	data->num = 0;
 	data->posmax = 0;
 	data->posmin = 0;
@@ -90,7 +93,6 @@ int	main(int argc, char *argv[])
 		ft_error();
 	argcheck(argv, data, &stack_a);
 	select_al(&stack_a, &stack_b, data);
-	ft_printst(stack_a, stack_b);
 	stackclear(&stack_a);
 	free(data);
 	/* crear el algoritmo para 5, 100 y 500 numeros */

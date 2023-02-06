@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/25 17:14:52 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:17:54 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ void	ft_lst_inverted(t_list **stack_a, t_stacks *data)
 
 void	maxminstack(t_list *stack_a, t_stacks *data)
 {
-	data->max = -2147483648;
-	data->min = 2147483647;
 	while (stack_a)
 	{
 		if (stack_a->content > data->max)
@@ -76,7 +74,6 @@ void	maxminstack(t_list *stack_a, t_stacks *data)
 			data->min = stack_a->content;
 		stack_a = stack_a->next;
 	}
-	posmaxmin(stack_a, data);
 }
 
 void	posmaxmin(t_list *stack_a, t_stacks *data)
@@ -84,6 +81,8 @@ void	posmaxmin(t_list *stack_a, t_stacks *data)
 	int	statemax;
 	int	statemin;
 
+	data->posmax = 0;
+	data->posmin = 0;
 	statemax = 0;
 	statemin = 0;
 	while (stack_a)
@@ -116,10 +115,37 @@ int	ft_only_spaces(const char *str)
 	return (0);
 }
 
-void	ra_rra(t_list **stack_a, t_stacks *data)
+void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
 {
-	if (data->posmax < (data->count_a / 2)
-		|| data->posmin < (data->count_a / 2))
+	if (pos < (data->count_a / 2))
+		ft_ra(stack_a, data);
+	else
+		ft_rra(stack_a, data);
+}
+
+int	ft_posnum(t_list **stack_a, int num)
+{
+	t_list	*tmp;
+	int		pos;
+
+	pos = 0;
+	tmp = *stack_a;
+	while (tmp)
+	{
+		if (num != tmp->content)
+			pos++;
+		tmp = tmp->next;
+	}
+	return (pos);
+}
+
+void	ra_rra(t_list **stack_a, t_stacks *data, int num)
+{
+	int	pos;
+
+	pos = 0;
+	pos = ft_posnum(stack_a, num);
+	if (pos < (data->count_a / 2))
 		ft_ra(stack_a, data);
 	else
 		ft_rra(stack_a, data);
