@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/06 15:48:04 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:29:06 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	data->count_a = ft_lstsize(*stack_a);
 	data->count_b = ft_lstsize(*stack_b);
-	maxminstack(*stack_a, data);
+	maxminstack(stack_a, data);
 	posmaxmin(*stack_a, data);
 	if (data->count_a <= 2)
 	{
@@ -36,6 +36,11 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	else if (data->count_a <= 5)
 	{
 		al_five(stack_a, stack_b, data);
+		return ;
+	}
+	else if (data->count_a <= 100)
+	{
+		al_hundred(stack_a, stack_b, data);
 		return ;
 	}
 	free(stack_b);
@@ -67,10 +72,8 @@ void	initdata(t_stacks *data)
 	data->count_a = 0;
 	data->count_b = 0;
 	data->movs = 0;
-	/* data->max = 0;
-	data->min = 0; */
-	data->max = -2147483648;
-	data->min = 2147483647;
+	data->max = 0;
+	data->min = 0;
 	data->num = 0;
 	data->posmax = 0;
 	data->posmin = 0;

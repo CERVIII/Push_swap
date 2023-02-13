@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/06 17:17:54 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:29:58 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,20 @@ void	ft_lst_inverted(t_list **stack_a, t_stacks *data)
 	return ;
 }
 
-void	maxminstack(t_list *stack_a, t_stacks *data)
+void	maxminstack(t_list **stack_a, t_stacks *data)
 {
-	while (stack_a)
+	t_list	*tmp;
+
+	data->max = -2147483648;
+	data->min = 2147483647;
+	tmp = *stack_a;
+	while (tmp != NULL)
 	{
-		if (stack_a->content > data->max)
-			data->max = stack_a->content;
-		if (stack_a->content < data->min)
-			data->min = stack_a->content;
-		stack_a = stack_a->next;
+		if (tmp->content > data->max)
+			data->max = tmp->content;
+		if (tmp->content < data->min)
+			data->min = tmp->content;
+		tmp = tmp->next;
 	}
 }
 
@@ -121,9 +126,10 @@ void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
 		ft_ra(stack_a, data);
 	else
 		ft_rra(stack_a, data);
+	return ;
 }
 
-int	ft_posnum(t_list **stack_a, int num)
+/* int	ft_posnum(t_list **stack_a, int num)
 {
 	t_list	*tmp;
 	int		pos;
@@ -149,4 +155,4 @@ void	ra_rra(t_list **stack_a, t_stacks *data, int num)
 		ft_ra(stack_a, data);
 	else
 		ft_rra(stack_a, data);
-}
+} */
