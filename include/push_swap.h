@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/13 12:17:41 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:41:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_stacks
 	int		movs;
 	int		posmax;
 	int		posmin;
+	int		*cpy;
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
@@ -92,5 +93,7 @@ void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ALGORITM100.C */
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
+void	cpyarray(t_list **stack_a, t_stacks *data);
+void	ordercpy(int *cpy);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/13 17:59:20 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:46:22 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,30 @@
 
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
-	t_list	*tmp;
-	int		*cpy;
+	int	i;
 
-	cpy = (int *) malloc(sizeof(data->count_a));
+	i = 0;
+	stack_b = NULL;
+	cpyarray(stack_a, data);
+	while (data->cpy[i])
+	{
+		printf("%d\n", data->cpy[i++]);
+	}
+	free(data->cpy);
+	return ;
+}
+
+void	cpyarray(t_list **stack_a, t_stacks *data)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	data->cpy = (int *) calloc(sizeof(int), (data->count_a));
 	tmp = *stack_a;
 	while (tmp != NULL)
 	{
-		cpy = tmp->content;
+		data->cpy[i++] = tmp->content;
 		tmp = tmp->next;
-	}
-}
-
-int	*ordercpy(int *cpy)
-{
-	int	swp;
-	int	swp2;
-
-	while ()
-	{
-		/* swp = stack_a;
-		swp2 = swp->next;
-		stack_a = swp2;
-		swp->next = swp2->next;
-		swp2->next = swp; */
 	}
 }
