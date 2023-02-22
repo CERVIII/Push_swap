@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/13 12:29:06 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:38:28 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	else if (data->count_a <= 100)
 	{
 		al_hundred(stack_a, stack_b, data);
+		return ;
+	}
+	else if (data->count_a <= 500)
+	{
+		al_fivehundred(stack_a, stack_b, data);
 		return ;
 	}
 	free(stack_b);

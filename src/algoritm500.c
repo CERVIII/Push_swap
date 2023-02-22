@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algoritm100.c                                      :+:      :+:    :+:   */
+/*   algoritm500.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/22 15:05:04 by pcervill         ###   ########.fr       */
+/*   Created: 2023/02/22 14:58:53 by pcervill          #+#    #+#             */
+/*   Updated: 2023/02/22 14:59:29 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
+void	al_fivehundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*tmp;
 
@@ -35,43 +35,3 @@ void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	}
 	return ;
 }
-
-/* void	al_hundred(t_list **stack_a, t_stacks *data)
-{
-	convertpos(stack_a, data);
-}
-
-void	convertpos(t_list **stack_a, t_stacks *data)
-{
-	int		num;
-	int		conv;
-	int		j;
-	t_list	*tmp;
-	t_list	*tmp2;
-
-	data->cpy = (int *)calloc(sizeof(int), data->count_a);
-	tmp = *stack_a;
-	j = 0;
-	while (tmp != NULL)
-	{
-		conv = 0;
-		num = tmp->content;
-		tmp2 = *stack_a;
-		while (tmp2 != NULL)
-		{
-			if (num > tmp2->content)
-				conv++;
-			tmp2 = tmp2->next;
-		}
-		data->cpy[j] = conv;
-		printf("%d		%d\n", tmp->content, data->cpy[j++]);
-		tmp = tmp->next;
-	}
-}
-
-void	chunks(t_stacks *data, int chunks)
-{
-	int	numchunk;
-
-	numchunk = data->count_a / chunks;
-} */

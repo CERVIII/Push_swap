@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:24:43 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/24 11:23:59 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:51:53 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlen2(const char *str);
+size_t	ft_intlen(const int *arry);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
