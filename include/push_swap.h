@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/22 15:04:26 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:44:49 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_stacks
 	int		posmax;
 	int		posmin;
 	int		*cpy;
-	int		**chunks;
+	int		chunks;
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
@@ -93,9 +93,12 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data);
 void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ALGORITM100.C */
+void	push_min(t_list **stack_a, t_list **stack_b, t_stacks *data, int i);
+void	rotate_max(t_list **stack_a, t_list **stack_b, t_stacks *data, int i);
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
-//void	al_hundred(t_list **stack_a, t_stacks *data);
-void	convertpos(t_list **stack_a, t_stacks *data);
+void	cpyarray(t_list *stack_a, t_stacks *data);
+void	sort_array(t_stacks *data);
+void	chunkslen(t_stacks *data);
 
 /* 		ALGORITM500.C */
 void	al_fivehundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
