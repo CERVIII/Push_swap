@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/27 16:44:49 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:23:17 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,30 @@ typedef struct s_stacks
 {
 	int		count_a;
 	int		count_b;
-	int		min;
-	int		max;
+	int		min_a;
+	int		min_b;
+	int		max_a;
+	int		max_b;
 	int		num;
 	int		movs;
-	int		posmax;
-	int		posmin;
+	int		posmax_a;
+	int		posmax_b;
+	int		posmin_a;
+	int		posmin_b;
 	int		*cpy;
 	int		chunks;
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
-void	initdata(t_stacks *data);
 void	ft_printst(t_list *stack_a, t_list *stack_b);
+void	initdata(t_stacks *data);
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data);
-void	example_movs(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ARGUMENTS.C 	*/
-void	argcheck(char *argv[], t_stacks *data, t_list **stack_a);
 int		checkparams(char *argv);
 void	ft_write_lst(t_list **stack_a, int num);
 void	ft_isrepeat(t_list *stack_a, int num);
-void	ft_freestring(char **str);
-
-/* 		FT_STACK.C		*/
-void	ft_lstorder(t_list **stack_a);
-void	ft_lst_inverted(t_list **stack_a, t_stacks *data);
-void	maxminstack(t_list **stack_a, t_stacks *data);
-void	stackclear(t_list **stack_a);
-int		ft_only_spaces(const char *str);
-void	posmaxmin(t_list *stack_a, t_stacks *data);
-void	ra_rra(t_list **stack_a, t_stacks *data, int pos);
+void	argcheck(char *argv[], t_list **stack_a);
 
 /* 		MOVS1.C			*/
 void	ft_sa(t_list **stack_a, t_stacks *data);
@@ -84,23 +77,36 @@ void	ft_rr(t_list **stack_a, t_list **stack_b, t_stacks *data);
 void	ft_rra(t_list **stack_a, t_stacks *data);
 void	ft_rrb(t_list **stack_b, t_stacks *data);
 void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data);
-void	auxrrb(t_list **stack_b);
 
-/* 		ALGORITM3_5		 */
+/* 		ALGORITM2_3_5		 */
 void	al_two(t_list **stack_a, t_stacks *data);
 void	al_three(t_list **stack_a, t_stacks *data);
 void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data);
 void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
-/* 		ALGORITM100.C */
+/* 		ALGORITM100-500.C */
+void	chunkslen(t_stacks *data);
 void	push_min(t_list **stack_a, t_list **stack_b, t_stacks *data, int i);
 void	rotate_max(t_list **stack_a, t_list **stack_b, t_stacks *data, int i);
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
+
+/* 		SORT.C			 */
 void	cpyarray(t_list *stack_a, t_stacks *data);
 void	sort_array(t_stacks *data);
-void	chunkslen(t_stacks *data);
 
-/* 		ALGORITM500.C */
-void	al_fivehundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
+/* 		UTILS.C		*/
+void	stackclear(t_list **stack_a);
+void	ft_lstorder(t_list **stack_a);
+void	ra_rra(t_list **stack_a, t_stacks *data, int pos);
+
+/* 		UTILS_MAXMIN.C */
+void	minstack(t_list *stack, t_stacks *data, char mod);
+void	maxstack(t_list *stack, t_stacks *data, char mod);
+void	maxminstack(t_list *stack_a, t_stacks *data, char mod);
+
+/* 		UTILS_POSMAXMIN.C */
+void	posmax(t_list *stack, t_stacks *data, char mod);
+void	posmin(t_list *stack, t_stacks *data, char mod);
+void	posmaxmin(t_list *stack, t_stacks *data, char mod);
 
 #endif

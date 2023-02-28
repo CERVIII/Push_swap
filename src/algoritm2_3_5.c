@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algoritm3_5.c                                      :+:      :+:    :+:   */
+/*   algoritm2_3_5.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/07 10:07:36 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:26:29 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	while (data->count_b < 2)
 	{
 		tmp = *stack_a;
-		posmaxmin(*stack_a, data);
-		if (tmp->content == data->max || tmp->content == data->min)
+		posmaxmin(*stack_a, data, 'a');
+		if (tmp->content == data->max_a || tmp->content == data->min_a)
 			ft_pb(stack_a, stack_b, data);
 		else if (data->count_b == 1)
-			ra_rra(stack_a, data, data->max);
+			ra_rra(stack_a, data, data->max_a);
 		else
-			ra_rra(stack_a, data, data->min);
+			ra_rra(stack_a, data, data->min_a);
 	}
 	select_al(stack_a, stack_b, data);
 	while (data->count_b != 0)

@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algoritm100.c                                      :+:      :+:    :+:   */
+/*   algoritm100-500.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/27 16:58:11 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:06:16 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/* void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
+void	chunkslen(t_stacks *data)
 {
-	t_list	*tmp;
-
-	tmp = *stack_a;
-	while (data->count_a != 0)
-	{
-		tmp = *stack_a;
-		posmaxmin(*stack_a, data);
-		if (tmp->content != data->min)
-			ra_rra(stack_a, data, data->posmin);
-		if (tmp->content == data->min)
-		{
-			ft_pb(stack_a, stack_b, data);
-			maxminstack(stack_a, data);
-		}
-	}
-	while (data->count_b != 0)
-	{
-		ft_pa(stack_a, stack_b, data);
-	}
-	return ;
-} */
+	if (data->count_a >= 100 && data->count_a < 500)
+		data->chunks = 20;
+	else if (data->count_a >= 500)
+		data->chunks = 50;
+	else
+		data->chunks = 5;
+}
 
 void	push_min(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 {
@@ -44,7 +30,7 @@ void	push_min(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 
 	block = 0;
 	lastnum = data->cpy[i];
-	ft_pa(stack_a, stack_b, data);
+	ft_pb(stack_a, stack_b, data);
 	size = data->count_a + data->count_b;
 	if (size >= 500)
 		block = 25;
@@ -78,15 +64,12 @@ void	rotate_max(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 		ft_ra(stack_a, data);
 }
 
-void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
+void	orderchunks(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	int	i;
 	int	size;
 	int	lastnum;
 
-	cpyarray(*stack_a, data);
-	sort_array(data);
-	chunkslen(data);
 	i = data->chunks;
 	size = data->count_a + data->count_b;
 	lastnum = data->cpy[i];
@@ -108,56 +91,26 @@ void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 			i = size;
 		}
 	}
+}
+
+void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
+{
+	cpyarray(*stack_a, data);
+	sort_array(data);
+	chunkslen(data);
+	orderchunks(stack_a, stack_b, data);
+//	push_to_a(stack_a, stack_b, data);
+	ft_printst(*stack_a, *stack_b);
 	free(data->cpy);
 }
 
-void	cpyarray(t_list *stack_a, t_stacks *data)
+/* void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
-	int	i;
+	int	size;
 
-	i = 0;
-	data->cpy = (int *) malloc(data->count_a * sizeof(int));
-	if (!data->cpy)
-		return ;
-	while (stack_a)
+	size = data->count_a + data->count_b;
+	while (data->count_a != size)
 	{
-		data->cpy[i] = stack_a->content;
-		stack_a = stack_a->next;
-		i++;
+		while ((*stack_b)->content <)
 	}
-}
-
-void	sort_array(t_stacks *data)
-{
-	int	i;
-	int	pos;
-	int	min;
-	int	aux;
-
-	i = 0;
-	while (i < data->count_a)
-	{
-		min = i;
-		pos = i + 1;
-		while (pos < data->count_a)
-		{
-			if (data->cpy[pos] < data->cpy[min])
-				min = pos;
-			pos++;
-		}
-		aux = data->cpy[i];
-		data->cpy[i] = data->cpy[min];
-		data->cpy[min] = aux;
-		i++;
-	}
-}
-
-void	chunkslen(t_stacks *data)
-{
-	if (data->count_a >= 100 && data->count_a < 500)
-		data->chunks = 20;
-	else if (data->count_a >= 500)
-		data->chunks = 50;
-	else
-		data->chunks = 5;
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:26:34 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/25 12:59:54 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:04:01 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,29 @@ int	checkparams(char *argv)
 	return (0);
 }
 
-void	ft_freestring(char **str)
+void	ft_write_lst(t_list **stack_a, int num)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+	tmp = NULL;
+	tmp = ft_lstnew(num);
+	ft_lstadd_back(stack_a, tmp);
+	ft_isrepeat(*stack_a, num);
+	tmp = NULL;
 }
 
-void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
+void	ft_isrepeat(t_list *stack_a, int num)
+{
+	while (stack_a->next != NULL)
+	{
+		if (stack_a->content == num)
+			ft_error();
+		stack_a = stack_a->next;
+	}
+	return ;
+}
+
+void	argcheck(char *argv[], t_list **stack_a)
 {
 	char	**av;
 	int		i;
@@ -62,32 +71,9 @@ void	argcheck(char *argv[], t_stacks *data, t_list **stack_a)
 			ft_write_lst(stack_a, ft_atoi(av[j]));
 			j++;
 		}
-		ft_freestring(av);
+		ft_freestr(av);
 		i++;
 	}
 	ft_lstorder(stack_a);
-	ft_lst_inverted(stack_a, data);
-	return ;
-}
-
-void	ft_write_lst(t_list **stack_a, int num)
-{
-	t_list	*tmp;
-
-	tmp = NULL;
-	tmp = ft_lstnew(num);
-	ft_lstadd_back(stack_a, tmp);
-	ft_isrepeat(*stack_a, num);
-	tmp = NULL;
-}
-
-void	ft_isrepeat(t_list *stack_a, int num)
-{
-	while (stack_a->next != NULL)
-	{
-		if (stack_a->content == num)
-			ft_error();
-		stack_a = stack_a->next;
-	}
 	return ;
 }

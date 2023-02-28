@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:24:43 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/22 10:51:53 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:40:46 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int		ft_toupper(int c);
 
 char	*get_next_line(int fd);
 char	*ft_read_write(int fd, char *save);
+
 int		ft_error(void);
+void	ft_freestr(char **str);
 
 #endif

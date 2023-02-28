@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:51:16 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 16:57:46 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:04:49 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,23 @@ void	ft_rrb(t_list **stack_b, t_stacks *data)
 	return ;
 }
 
+void	auxrrb(t_list **stack_b)
+{
+	t_list	*last;
+	t_list	*tmp;
+
+	last = *stack_b;
+	tmp = *stack_b;
+	while (last->next)
+	{
+		tmp = last;
+		last = last->next;
+	}
+	last->next = *stack_b;
+	*stack_b = last;
+	tmp->next = NULL;
+}
+
 void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*last;
@@ -71,21 +88,4 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	ft_putstr_fd("rrr\n", 1);
 	data->movs++;
 	return ;
-}
-
-void	auxrrb(t_list **stack_b)
-{
-	t_list	*last;
-	t_list	*tmp;
-
-	last = *stack_b;
-	tmp = *stack_b;
-	while (last->next)
-	{
-		tmp = last;
-		last = last->next;
-	}
-	last->next = *stack_b;
-	*stack_b = last;
-	tmp->next = NULL;
 }
