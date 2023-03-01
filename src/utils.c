@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/28 12:43:49 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:02:03 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,19 @@ void	ft_lstorder(t_list **stack_a)
 	exit (0);
 }
 
-void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
+void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data, char mod)
 {
-	if (pos < (data->count_a / 2))
-		ft_ra(stack_a, data);
-	else
-		ft_rra(stack_a, data);
+	if (data->count_a >= 2 && (*stack_a)->content
+		> (*stack_a)->next->content && data->count_b >= 2
+		&& (*stack_a)->content > (*stack_a)->next->content)
+		ft_ss(stack_a, stack_b, data);
+	if (data->count_a >= 2 && (*stack_a)->content
+		> (*stack_a)->next->content)
+	{
+		if (mod == 'a')
+			ft_sa(stack_a, data);
+		if (mod == 'b')
+			ft_sb(stack_b, data);
+	}
 	return ;
 }

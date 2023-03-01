@@ -6,11 +6,20 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/28 13:26:29 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:09:12 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
+{
+	if (pos < (data->count_a / 2))
+		ft_ra(stack_a, data);
+	else
+		ft_rra(stack_a, data);
+	return ;
+}
 
 void	al_two(t_list **stack_a, t_stacks *data)
 {

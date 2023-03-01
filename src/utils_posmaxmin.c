@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:29:15 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/28 13:36:59 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:49:10 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	posmax(t_list *stack, t_stacks *data, char mod)
 	data->posmax_a = 0;
 	data->posmax_b = 0;
 	maxstack(stack, data, mod);
-	if (mod == 'a')
+	if (mod == 'a' && data->count_a != 0)
 	{
 		while (stack->content != data->max_a)
 		{
@@ -26,7 +26,7 @@ void	posmax(t_list *stack, t_stacks *data, char mod)
 			stack = stack->next;
 		}
 	}
-	else if (mod == 'b')
+	else if (mod == 'b' && data->count_b != 0)
 	{
 		while (stack->content != data->max_b)
 		{
@@ -42,7 +42,7 @@ void	posmin(t_list *stack, t_stacks *data, char mod)
 	data->posmin_a = 0;
 	data->posmin_b = 0;
 	minstack(stack, data, mod);
-	if (mod == 'a')
+	if (mod == 'a' && data->count_a != 0)
 	{
 		while (stack->content != data->min_a)
 		{
@@ -50,7 +50,7 @@ void	posmin(t_list *stack, t_stacks *data, char mod)
 			stack = stack->next;
 		}
 	}
-	else if (mod == 'b')
+	else if (mod == 'b' && data->count_b != 0)
 	{
 		while (stack->content != data->min_b)
 		{

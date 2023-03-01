@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algoritm100-500.c                                  :+:      :+:    :+:   */
+/*   algoritm_100_500.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/28 13:06:16 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:55:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	rotate_max(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 		ft_ra(stack_a, data);
 }
 
-void	orderchunks(t_list **stack_a, t_list **stack_b, t_stacks *data)
+void	push_to_b(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	int	i;
 	int	size;
@@ -95,22 +95,9 @@ void	orderchunks(t_list **stack_a, t_list **stack_b, t_stacks *data)
 
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
-	cpyarray(*stack_a, data);
-	sort_array(data);
+	array_sort(*stack_a, data, 'a');
 	chunkslen(data);
-	orderchunks(stack_a, stack_b, data);
-//	push_to_a(stack_a, stack_b, data);
-	ft_printst(*stack_a, *stack_b);
+	push_to_b(stack_a, stack_b, data);
 	free(data->cpy);
+	push_to_a(stack_a, stack_b, data);
 }
-
-/* void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
-{
-	int	size;
-
-	size = data->count_a + data->count_b;
-	while (data->count_a != size)
-	{
-		while ((*stack_b)->content <)
-	}
-} */

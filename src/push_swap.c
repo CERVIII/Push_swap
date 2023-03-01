@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/02/28 13:37:38 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:07:32 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	ft_printst(t_list *stack_a, t_list *stack_b)
 	return ;
 }
 
-/* static void	leaks(void)
+static void	leaks(void)
 {
 	system("leaks -q push_swap");
-} */
+}
 
 void	initdata(t_stacks *data)
 {
@@ -50,8 +50,10 @@ void	initdata(t_stacks *data)
 	data->max_b = 0;
 	data->posmax_b = 0;
 	data->posmin_b = 0;
-	data->num = 0;
 	data->movs = 0;
+	data->hold = 0;
+	data->chunks = 0;
+	data->flag = 0;
 }
 
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
@@ -60,7 +62,6 @@ void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	data->count_b = ft_lstsize(*stack_b);
 	maxminstack(*stack_a, data, 'a');
 	posmaxmin(*stack_a, data, 'a');
-	printf("MAX_A: %d	MIN_A: %d	POS_MAX_A:%d	POS_MIN_A: %d\n", data->max_a, data->min_a, data->posmax_a, data->posmin_a);
 	if (data->count_a <= 2)
 	{
 		al_two(stack_a, data);
@@ -90,7 +91,7 @@ int	main(int argc, char *argv[])
 	t_list		*stack_a;
 	t_list		*stack_b;
 
-	//atexit(leaks);
+	atexit(leaks);
 	stack_a = NULL;
 	stack_b = NULL;
 	data = (t_stacks *) malloc(sizeof(t_stacks));
@@ -101,7 +102,7 @@ int	main(int argc, char *argv[])
 		ft_error();
 	argcheck(argv, &stack_a);
 	select_al(&stack_a, &stack_b, data);
-	/* stackclear(&stack_a);
-	free(data); */
+	stackclear(&stack_a);
+	free(data);
 	return (0);
 }

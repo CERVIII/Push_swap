@@ -6,7 +6,7 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 09:52:26 by pcervill          #+#    #+#              #
-#    Updated: 2023/02/28 12:33:15 by pcervill         ###   ########.fr        #
+#    Updated: 2023/03/01 15:44:02 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address -g3
 SRC_DIR = ./src
 
 SRCS = push_swap.c arguments.c utils.c utils_maxmin.c utils_posmaxmin.c \
-		movs1.c movs2.c movs3.c sort.c algoritm2_3_5.c algoritm100-500.c
+		movs1.c movs2.c movs3.c sort.c algoritm_2_3_5.c algoritm_100_500.c \
+		algoritm2_100_500.c
 
 OBJS = $(addprefix $(SRC_DIR)/, ${SRCS:.c=.o})
 
