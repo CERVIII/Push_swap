@@ -6,11 +6,19 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:32:40 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/01 18:01:54 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:03:51 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	get_iterative(int hold, int count)
+{
+	if (hold <= (count / 2))
+		return (hold - 1);
+	else
+		return (count - hold + 1);
+}
 
 void	select_iter(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
@@ -45,40 +53,10 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	while (*stack_b)
 	{
 		posmaxmin(*stack_b, data, 'b');
-		data->hold = get_max_content(*stack_b);
+		data->hold = data->posmax_b + 1;
 		data->posmax_b = get_iterative(data->hold, data->count_b);
 		array_sort(*stack_b, data, 'b');
 		select_iter(stack_a, stack_b, data);
 		ft_ss_sx(stack_a, stack_b, data, 'a');
 	}
-}
-
-int	get_max_content(t_list *stack)
-{
-	int	len;
-	int	max;
-	int	pos;
-
-	len = 0;
-	max = stack->content;
-	pos = 1;
-	while (stack)
-	{
-		if (stack->content > max)
-		{
-			max = stack->content;
-			pos = len + 1;
-		}
-		stack = stack->next;
-		len++;
-	}
-	return (pos);
-}
-
-int	get_iterative(int hold, int count)
-{
-	if (hold <= (count / 2))
-		return (hold - 1);
-	else
-		return (count - hold + 1);
 }

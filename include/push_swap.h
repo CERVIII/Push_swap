@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/01 17:42:53 by pcervill         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:04:47 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_stacks
 }	t_stacks;
 
 /*	 	PUSH_SWAP.C		*/
-void	ft_printst(t_list *stack_a, t_list *stack_b);
 void	initdata(t_stacks *data);
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
@@ -80,6 +79,7 @@ void	ft_rrb(t_list **stack_b, t_stacks *data);
 void	ft_rrr(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ALGORITM2_3_5		 */
+void	ra_rra(t_list **stack_a, t_stacks *data, int pos);
 void	al_two(t_list **stack_a, t_stacks *data);
 void	al_three(t_list **stack_a, t_stacks *data);
 void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data);
@@ -94,18 +94,16 @@ void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		ALGORITM2_100_500.C */
 void	select_iter(t_list **stack_a, t_list **stack_b, t_stacks *data);
-void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
-int		get_max_content(t_list *stack);
 int		get_iterative(int hold, int count);
+void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		SORT.C			 */
-void	array_sort(t_list *stack_a, t_stacks *data, char mod);
 void	sort(t_stacks *data, int size);
+void	array_sort(t_list *stack_a, t_stacks *data, char mod);
 
 /* 		UTILS.C		*/
 void	stackclear(t_list **stack_a);
 void	ft_lstorder(t_list **stack_a);
-void	ra_rra(t_list **stack_a, t_stacks *data, int pos);
 void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data, char mod);
 
 /* 		UTILS_MAXMIN.C */
