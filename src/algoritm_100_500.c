@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/01 17:55:05 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:06:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	i = data->chunks;
 	size = data->count_a + data->count_b;
 	lastnum = data->cpy[i];
-	while (data->count_a > 0)
+	while (data->count_a > 1)
 	{
 		while (data->count_b < i)
 		{

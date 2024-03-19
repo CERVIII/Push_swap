@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/01 16:02:03 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:44:49 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	stackclear(t_list **stack_a)
 	return ;
 }
 
+/*
+	Funcion para comprobar si la lista esta ordenada.
+		1º) Creo dos nodos para recorrer la lista.
+		2º) Comparo el contenido de cada nodo con el siguiente.
+		3º) Si el contenido del primer nodo es mayor que el del segundo,
+			la lista no esta ordenada.
+		4º) Si la lista esta ordenada, salgo del programa.
+*/
 void	ft_lstorder(t_list **stack_a)
 {
 	t_list	*cpy;

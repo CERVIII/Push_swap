@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/06 12:04:47 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:54:22 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data, char mod);
 /* 		UTILS_MAXMIN.C */
 void	minstack(t_list *stack, t_stacks *data, char mod);
 void	maxstack(t_list *stack, t_stacks *data, char mod);
-void	maxminstack(t_list *stack_a, t_stacks *data, char mod);
+void	maxminstack(t_list *stack, t_stacks *data, char mod);
 
 /* 		UTILS_POSMAXMIN.C */
 void	posmax(t_list *stack, t_stacks *data, char mod);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algoritm2_3_5.c                                    :+:      :+:    :+:   */
+/*   algoritm_2_3_5.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/01 11:09:12 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:24:57 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
 	return ;
 }
 
+/*
+	Funcion para ordenar 2 numeros.
+		1º) Compruebo si el primer numero es mayor que el segundo.
+		2º) Si lo es, hago un swap.
+*/
 void	al_two(t_list **stack_a, t_stacks *data)
 {
 	t_list	*tmp;
@@ -30,6 +35,12 @@ void	al_two(t_list **stack_a, t_stacks *data)
 		ft_sa(stack_a, data);
 }
 
+/*
+	Funcion para ordenar 3 numeros
+		1º) Creo 3 variables para almacenar el contenido de los nodos.
+		2º) Hago un bucle para comprobar si los numeros estan ordenados.
+		3º) Gestiono todos los casos posibles para ordenar los numeros.
+*/
 void	al_three(t_list **stack_a, t_stacks *data)
 {
 	int		a;
@@ -59,6 +70,18 @@ void	al_three(t_list **stack_a, t_stacks *data)
 	}
 }
 
+/*
+	Funcion para ordenar 5 numeros:
+		1º) Creo un bucle para mover los dos primeros
+			numeros max o min mas cercanos al inicio o final.
+		2º) Para ello compruebo la posicion del max y el min.
+		3º) Si la posicion del max o min es menor que la mitad de la lista,
+			hago un ra, si no, hago un rra.
+		4º) Cuando tengo los 3 numeros restantes.
+		5º) Llamo a la funcion select_al para ordenar los 3 numeros restantes.
+		6º) Hago un bucle para mover el contenido de la pila b a la pila a.
+			en este paso utilizo ft_move_a para ordenar los numeros dela pila b.
+*/
 void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*tmp;
@@ -83,6 +106,9 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	return ;
 }
 
+/*
+	Funcion
+*/
 void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	int		a;

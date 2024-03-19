@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/06 11:58:52 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:52:51 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ void	initdata(t_stacks *data)
 	data->flag = 0;
 }
 
+/*
+	Funcion para seleccionar el algoritmo a utilizar segun el tamaño de la lista.
+		1º) Compruebo el tamaño de las pilas a y b.
+		2º) Compruebo el numero maximo y minimo de la pila a.
+		3º) Compruebo la posicion del numero maximo y minimo en la pila a.
+		4º) Segun el tamaño de de la pila a, elijo el algoritmo a utilizar.
+*/
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	data->count_a = ft_lstsize(*stack_a);
@@ -75,10 +82,8 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	data = (t_stacks *) malloc(sizeof(t_stacks));
 	initdata(data);
-	if (!data)
+	if (!data || argc < 2)
 		exit (1);
-	if (argc < 2)
-		ft_error();
 	argcheck(argv, &stack_a);
 	select_al(&stack_a, &stack_b, data);
 	stackclear(&stack_a);
