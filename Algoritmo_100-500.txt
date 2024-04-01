@@ -1,0 +1,41 @@
+algoritmo de 100 y 500
+
+1º) Creo un array del stack_a y lo ordeno
+2º) Dependiendo del total de numeros hago bloques para pasar numeros al stack_b
+	dentro de ese bloque
+	Ejemplo:								<100, >=100, >=500			<100, >=100, >=500
+		ARRAY ORDENADO		STACK A			BLOQUES (3, 25, 10)			CHUNKS (5, 20, 50)
+			0					5					2						1	2.2
+			1					3					1						-	1.1
+			2					1					1						-	1.2
+			3					8					2						-	2.3
+			4					6					2						-	2.4
+			5					9					2						2	2.5
+			6					0					1						-	1.3
+			7					4					1						-	1.4
+			8					2					1						-	1.5
+			9					7					2						-	2.1
+
+3º) Voy pasando del stack_a al stack_b
+	Funcion push_to_b:
+		1. Creo una variable para guardar la cantidad de numeros,
+			que debo mover por bloque al stack_b.
+
+		2. Calculo la cantidad maxima de numeros en A y B.
+
+		3. En la variable "lastnum" guardo el valor del ultimo
+			numero del bloque. (En el ejemplo sera el 5).
+
+		4. Hago un blucle hasta que en el stack_a solo quede un numero.
+
+		5. Ahora hago otro bucle mientras que el contador de stack_b sea menor
+			que el numero de chunks(numeros x bloque)
+			5.1. Compruebo si:
+				- El primer elemento es menor al valor que tiene
+					el ultimo numero del bloque (en el ejemplo sera el 5).
+				o (||)
+				- El numero de chunk es igual al tamaño total de numeros (10).
+
+				5.1.1. Si se cumple, entro en la funcion push_min.
+						5
+				5.1.2. Si no se cumple entro en la funcion rotate_max.
