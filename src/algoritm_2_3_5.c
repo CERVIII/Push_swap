@@ -6,12 +6,19 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:37 by pcervill          #+#    #+#             */
-/*   Updated: 2024/03/19 15:24:57 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:51:57 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/*
+	Funcion para calcular si es mejpor hacer un ra o un rra
+		1º) Si la pos del numero que queremos colocar el primero esta en la
+			primera mitad del stack, hacemos un ra
+		2º) Si la pos del numero que queremos colocar el primero esta en la
+			sengunda mitad, hacemos un rra
+*/
 void	ra_rra(t_list **stack_a, t_stacks *data, int pos)
 {
 	if (pos < (data->count_a / 2))
@@ -80,7 +87,7 @@ void	al_three(t_list **stack_a, t_stacks *data)
 		4º) Cuando tengo los 3 numeros restantes.
 		5º) Llamo a la funcion select_al para ordenar los 3 numeros restantes.
 		6º) Hago un bucle para mover el contenido de la pila b a la pila a.
-			en este paso utilizo ft_move_a para ordenar los numeros dela pila b.
+			en este paso utilizo ft_move_a para ordenar los numeros de la pila b.
 */
 void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
@@ -107,18 +114,20 @@ void	al_five(t_list **stack_a, t_list **stack_b, t_stacks *data)
 }
 
 /*
-	Funcion
+	Funcion para mover un numero de la pila B a la pila A:
+		1º) Creo una copia de la pila A y le doy el valor de la primera posicion
+			a la variable a
+		2º) Ahora la structura tmp apunta al stack_b, para guardar el numero que
+			cambiare de stack
+		3º) Hago un PA para pasar el primer elemento del stack B al primer
+			elemento del stack A
+		4º) Ahora comparo el valor de a y si es mayor que el siguiente elemento
+			de la pila A, hago un RA para mover el numero a la ultima posicion
 */
 void	ft_move_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
-	int		a;
-	t_list	*tmp;
-
-	tmp = *stack_a;
-	a = tmp->content;
-	tmp = *stack_b;
 	ft_pa(stack_a, stack_b, data);
-	if (tmp->content > a)
+	if ((*stack_a)->content > (*stack_a)->next->content)
 		ft_ra(stack_a, data);
 	return ;
 }

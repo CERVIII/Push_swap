@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:32:40 by pcervill          #+#    #+#             */
-/*   Updated: 2023/03/06 12:03:51 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:16:40 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	push_to_a(t_list **stack_a, t_list **stack_b, t_stacks *data)
 		data->posmax_b = get_iterative(data->hold, data->count_b);
 		array_sort(*stack_b, data, 'b');
 		select_iter(stack_a, stack_b, data);
-		ft_ss_sx(stack_a, stack_b, data, 'a');
+		ft_ss_sx(stack_a, stack_b, data);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2024/03/19 13:52:51 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:18:03 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 } */
 // atexit(leaks);
 
+/*
+	Funcion para inicializar las variables de la estructura.
+*/
 void	initdata(t_stacks *data)
 {
 	data->count_a = 0;

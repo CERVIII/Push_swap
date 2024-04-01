@@ -6,12 +6,19 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:18 by pcervill          #+#    #+#             */
-/*   Updated: 2023/01/23 16:29:30 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:56:30 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/*
+	Funcion para hacer un rotate en el stack A, el primer elemento pasa
+	a ser el ultimo.
+		1º) Creo dos variables para almacenar el primer y ultimo nodo.
+		2º) Cambio los nodos de posicion.
+		3º) Imprimo el movimiento.
+*/
 void	ft_ra(t_list **stack_a, t_stacks *data)
 {
 	t_list	*first;
@@ -31,6 +38,13 @@ void	ft_ra(t_list **stack_a, t_stacks *data)
 	return ;
 }
 
+/*
+	Funcion para hacer un rotate en el stack B, el primer elemento pasa
+	a ser el ultimo.
+		1º) Creo dos variables para almacenar el primer y ultimo nodo.
+		2º) Cambio los nodos de posicion.
+		3º) Imprimo el movimiento.
+*/
 void	ft_rb(t_list **stack_b, t_stacks *data)
 {
 	t_list	*first;
@@ -50,6 +64,13 @@ void	ft_rb(t_list **stack_b, t_stacks *data)
 	return ;
 }
 
+/*
+	Funcion para hacer un rotate en los stacks A y B, el primer elemento pasa
+	a ser el ultimo.
+		1º) Creo dos variables para almacenar el primer y ultimo nodo.
+		2º) Cambio los nodos de posicion.
+		3º) Imprimo el movimiento.
+*/
 void	ft_rr(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*first;

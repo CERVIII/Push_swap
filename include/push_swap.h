@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:56:06 by pcervill          #+#    #+#             */
-/*   Updated: 2024/03/19 13:54:22 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:16:59 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_stacks
 	int		posmin_b;
 	int		movs;
 	int		*cpy;
+	int		lastnum;		//cambio temporal
 	int		chunks;
 	int		hold;
 	int		flag;
@@ -104,7 +105,7 @@ void	array_sort(t_list *stack_a, t_stacks *data, char mod);
 /* 		UTILS.C		*/
 void	stackclear(t_list **stack_a);
 void	ft_lstorder(t_list **stack_a);
-void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data, char mod);
+void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data);
 
 /* 		UTILS_MAXMIN.C */
 void	minstack(t_list *stack, t_stacks *data, char mod);
