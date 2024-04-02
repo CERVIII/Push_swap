@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2024/04/01 15:26:56 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:02:04 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	if (data->count_a >= 2 && (*stack_a)->content > (*stack_a)->next->content
 		&& data->count_b >= 2
-		&& (*stack_a)->content > (*stack_a)->next->content)
+		&& (*stack_b)->content > (*stack_b)->next->content)
 		ft_ss(stack_a, stack_b, data);
 	else if (data->count_a >= 2
 		&& (*stack_a)->content > (*stack_a)->next->content)
