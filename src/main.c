@@ -6,7 +6,7 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:05:05 by pcervill          #+#    #+#             */
-/*   Updated: 2024/04/01 12:18:03 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:48:12 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 } */
 // atexit(leaks);
 
-/*
-	Funcion para inicializar las variables de la estructura.
-*/
 void	initdata(t_stacks *data)
 {
 	data->count_a = 0;
@@ -39,13 +36,6 @@ void	initdata(t_stacks *data)
 	data->flag = 0;
 }
 
-/*
-	Funcion para seleccionar el algoritmo a utilizar segun el tamaño de la lista.
-		1º) Compruebo el tamaño de las pilas a y b.
-		2º) Compruebo el numero maximo y minimo de la pila a.
-		3º) Compruebo la posicion del numero maximo y minimo en la pila a.
-		4º) Segun el tamaño de de la pila a, elijo el algoritmo a utilizar.
-*/
 void	select_al(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	data->count_a = ft_lstsize(*stack_a);

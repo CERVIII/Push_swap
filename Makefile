@@ -6,17 +6,17 @@
 #    By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 09:52:26 by pcervill          #+#    #+#              #
-#    Updated: 2024/04/01 15:17:34 by pcervill         ###   ########.fr        #
+#    Updated: 2024/04/04 11:59:59 by pcervill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address -g3
 
 SRC_DIR = ./src
 
-SRCS = push_swap.c arguments.c utils.c utils_maxmin.c utils_posmaxmin.c \
+SRCS = main.c arguments.c utils.c utils_maxmin.c utils_posmaxmin.c \
 		movs1.c movs2.c movs3.c sort.c algoritm_2_3_5.c algoritm_100_500.c \
 		algoritm2_100_500.c
 

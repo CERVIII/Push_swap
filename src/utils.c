@@ -6,18 +6,12 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:10:35 by pcervill          #+#    #+#             */
-/*   Updated: 2024/04/02 13:02:04 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:47:31 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-	Funcion para limpiar la lista.
-		1º) Creo una copia de la lista.
-		2º) Recorro la lista y libero la memoria de cada nodo.
-		3º) Igualo la lista a NULL.
-*/
 void	stackclear(t_list **stack_a)
 {
 	t_list	*cpy;
@@ -35,14 +29,6 @@ void	stackclear(t_list **stack_a)
 	return ;
 }
 
-/*
-	Funcion para comprobar si la lista esta ordenada.
-		1º) Creo dos nodos para recorrer la lista.
-		2º) Comparo el contenido de cada nodo con el siguiente.
-		3º) Si el contenido del primer nodo es mayor que el del segundo,
-			la lista no esta ordenada.
-		4º) Si la lista esta ordenada, salgo del programa.
-*/
 void	ft_lstorder(t_list **stack_a)
 {
 	t_list	*cpy;
@@ -60,16 +46,6 @@ void	ft_lstorder(t_list **stack_a)
 	exit (0);
 }
 
-/*
-	Funcion para comprobar si es mas optimo hacer un sa/sb o un ss.
-		1º) Compruebo si el stack A tiene mas de 2 elementos y si el primer
-			elemento es mayor que el segundo.
-			Compruebo si el stack B tiene mas de 2 elementos y si el primer
-			elemento es mayor que el segundo.
-		2º) Si se cumplen las dos condiciones, hago un ss.
-		3º) Si solo se cumple la primera, hago un sa.
-		4º) Si solo se cumple la segunda, hago un sb.
-*/
 void	ft_ss_sx(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	if (data->count_a >= 2 && (*stack_a)->content > (*stack_a)->next->content

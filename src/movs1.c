@@ -6,18 +6,12 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:22:32 by pcervill          #+#    #+#             */
-/*   Updated: 2024/04/01 11:53:34 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:46:05 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-	Funcion para hacer un swap en el stack A de las posiciones 1 y 2.
-		1º) Creo dos variables para almacenar los nodos que quiero intercambiar.
-		2º) Cambio los nodos de posicion.
-		3º) Imprimo el movimiento.
-*/
 void	ft_sa(t_list **stack_a, t_stacks *data)
 {
 	t_list	*swap;
@@ -33,12 +27,6 @@ void	ft_sa(t_list **stack_a, t_stacks *data)
 	return ;
 }
 
-/*
-	Funcion para hacer un swap en el stack B de las posiciones 1 y 2.
-		1º) Creo dos variables para almacenar los nodos que quiero intercambiar.
-		2º) Cambio los nodos de posicion.
-		3º) Imprimo el movimiento.
-*/
 void	ft_sb(t_list **stack_b, t_stacks *data)
 {
 	t_list	*swap;
@@ -54,12 +42,6 @@ void	ft_sb(t_list **stack_b, t_stacks *data)
 	return ;
 }
 
-/*
-	Funcion para hacer un swap en los stacks A y B de las posiciones 1 y 2.
-		1º) Creo dos variables para almacenar los nodos que quiero intercambiar.
-		2º) Cambio los nodos de posicion.
-		3º) Imprimo el movimiento.
-*/
 void	ft_ss(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*swap;
@@ -82,12 +64,6 @@ void	ft_ss(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	return ;
 }
 
-/*
-	Funcion para hacer un push del stack B al stack A.
-		1º) Creo una variable para almacenar el nodo que quiero mover.
-		2º) Muevo el nodo al stack A.
-		3º) Imprimo el movimiento.
-*/
 void	ft_pa(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*tmp;
@@ -105,12 +81,6 @@ void	ft_pa(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	return ;
 }
 
-/*
-	Funcion para hacer un push del stack A al stack B.
-		1º) Creo una variable para almacenar el nodo que quiero mover.
-		2º) Muevo el nodo al stack B.
-		3º) Imprimo el movimiento.
-*/
 void	ft_pb(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	t_list	*tmp;

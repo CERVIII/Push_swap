@@ -6,16 +6,12 @@
 /*   By: pcervill <pcervill@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:10:12 by pcervill          #+#    #+#             */
-/*   Updated: 2024/04/01 18:29:25 by pcervill         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:47:48 by pcervill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*
-	Funcion para calcular el tamaño de los bloques segun la cantidad de numeros
-	que se manden, es decir por cada bloque habra 50, 20 o 5 numeros.
-*/
 void	chunkslen(t_stacks *data)
 {
 	if (data->count_a >= 100 && data->count_a < 500)
@@ -26,23 +22,6 @@ void	chunkslen(t_stacks *data)
 		data->chunks = 5;
 }
 
-/*
-	Funcion para empujar el numero menor a la pila b.
-		1º) Creo una variable para el tamaño de la pila.
-		2º) Creo una variable para el bloque de numeros.
-		3º) Creo una variable para el ultimo numero de la pila.
-		4º) Empujo el numero a la pila b.
-		5º) Compruebo el tamaño de la pila.
-				Si el tamaño es >= a 500, el bloque es de 25.
-				Si el tamaño es >= a 100 y < a 500, el bloque es 10.
-				Si el tamaño es > a 5, y < 100 el bloque es de 3.
-		9º) Si la pila b tiene mas de 2 numeros y el contenido del primer nodo
-			es menor que el numero del bloque y la pila a tiene mas de 2 numeros
-			y el contenido del primer nodo es mayor que el ultimo numero, hago
-			una rotacion de ambas pilas.
-		10º) Si la pila b tiene mas de 2 numeros y el contenido del primer nodo
-			es menor que el numero del bloque, hago una rotacion de la pila b.
-*/
 void	push_min(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 {
 	int	size;
@@ -83,7 +62,6 @@ void	rotate_max(t_list **stack_a, t_list **stack_b, t_stacks *data, int i)
 		ft_ra(stack_a, data);
 }
 
-
 void	push_to_b(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	int	i;
@@ -112,14 +90,6 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, t_stacks *data)
 	}
 }
 
-/*
-	Funcion para ordenar mas de 5 numeros:
-		1º) Creo una copia de la pila A y la ordeno.
-		2º) Calculo el tamaño de los bloques.
-		3º) Empujo los numeros de la pila A a la pila B, segun esten al principio
-			y siempre que sean mas pequeños que el numero maximo y
-			haciendo grupos de x.
-*/
 void	al_hundred(t_list **stack_a, t_list **stack_b, t_stacks *data)
 {
 	array_sort(*stack_a, data, 'a');
